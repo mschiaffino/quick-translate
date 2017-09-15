@@ -1,7 +1,7 @@
-// Require the module and instantiate instance 
 const TJO = require('translate-json-object')
 const fs = require('fs');
 const path = require('path')
+const targetLanguages = require('../config/targetLanguages')
 
 const inputFilePath = path.join(__dirname, '../input/input.json')
 const outputFolderFilePath = path.join(__dirname, '../output')
@@ -25,9 +25,8 @@ function translate(language) {
     .then(data => {
       printTranslation(data, language)
       writeTranslationFile(data, language)
-    }).catch(err => {
-      console.error('error ', err)
-    });
+    })
+    .catch(console.error);
 }
 
 function printTranslation(translatedData, language) {
@@ -43,23 +42,4 @@ function writeTranslationFile(translatedData, language) {
   fs.writeFile(outputFilePath, prettifiedData)
 }
 
-const languages = [
-  {
-    key: 'es',
-    name: 'Spanish'
-  },
-  {
-    key: 'de',
-    name: 'German'
-  },
-  {
-    key: 'zh-CN',
-    name: 'Chinese'
-  },
-  {
-    key: 'ja',
-    name: 'Japanese'
-  }
-]
-
-languages.forEach(language => translate(language))
+targetLanguages.forEach(language => translate(language))
