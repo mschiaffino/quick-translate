@@ -1,5 +1,6 @@
 const TJO = require('translate-json-object')
-const fs = require('fs');
+const googleApiKey = require('../config/googleApiKey')
+const fs = require('fs')
 const path = require('path')
 const targetLanguages = require('../config/targetLanguages')
 
@@ -8,9 +9,7 @@ const outputFolderFilePath = path.join(__dirname, '../output')
 const inputFile = require(inputFilePath)
 
 function initTJOInstance(TJOInstance) {
-  TJOInstance.init({
-    googleApiKey: 'AIzaSyCSkQZolRdhq3Gq36HgTImix3bQT4n0K2o'
-  });
+  TJOInstance.init({ googleApiKey });
 }
 
 function getTJOInstance() {
