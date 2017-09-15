@@ -1,0 +1,14 @@
+{
+  "name": "quick-translate",
+  "version": "1.0.0",
+  "description": "Dummy script to ease key-value translations for i18n",
+  "main": "./src/translator.js",
+  "scripts": {
+    "start": "node ./src/translator.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "translate-json-object": "^2.3.0"
+  }
+}
